@@ -14,7 +14,11 @@ namespace test
 
         public List<int> andarMenosUtilizado()
         {
-            var test = ElevadorData.Elevadores.OrderBy(o => o.Andar).GroupBy(e => e.Andar).ToList();
+            var elevadoresGroup = ElevadorData.Elevadores.OrderBy(o => o.Andar).GroupBy(e => e.Andar).ToList();
+
+            var result = from elevador in ElevadorData.Elevadores
+                         group elevador by elevador.Andar into 
+                         select new { };
 
             test.Select(e => new {
                 e.Key,

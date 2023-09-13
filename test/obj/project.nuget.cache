@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lb1kHdKp77+cVb7b/rYWHnnjYnS6pTJncERw3qoOgSxey05b6D8+DmAmnhpRF3VNk9Pjl97SaI7KdDqvl5XXSA==",
+  "dgSpecHash": "Oa6NlGCa2x0FtvG/cU2fH37JJrdy7RW/9ATz3I7UQndi5yhILb/Vk4OXLTNJZNuYQi3Y4/7V+xFpe3J5WwPvEQ==",
   "success": true,
-  "projectFilePath": "C:\\poc\\test\\test\\test.csproj",
+  "projectFilePath": "C:\\poc\\ProvaAdmissionalApisul\\test\\test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ferna\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
