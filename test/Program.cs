@@ -1,4 +1,6 @@
 ﻿using test;
 
 var service = new ElevadorService();
-var elevadores = service.andarMenosUtilizado();
+
+var resultAndarMenosUtilizado = service.andarMenosUtilizado();
+var resultElevadorMaisFrequentado = service.elevadorMaisFrequentado();

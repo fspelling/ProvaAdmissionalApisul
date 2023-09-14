@@ -14,28 +14,44 @@ namespace test
 
         public List<int> andarMenosUtilizado()
         {
-            var elevadoresGroup = ElevadorData.Elevadores.OrderBy(o => o.Andar).GroupBy(e => e.Andar).ToList();
+            var elevadores = from elevador in ElevadorData.Elevadores
+                             group elevador by elevador.Andar into elevadorGroup
+                             orderby elevadorGroup.Key ascending
+                             select new
+                             {
+                                 andar = elevadorGroup.Key,
+                                 quantidade = elevadorGroup.Count()
+                             };
 
-            var result = from elevador in ElevadorData.Elevadores
-                         group elevador by elevador.Andar into 
-                         select new { };
-
-            test.Select(e => new {
-                e.Key,
-                e.Count()
-            });
-
-            throw new NotImplementedException();
+            return elevadores.Where(e => e.quantidade == elevadores.Min(m => m.quantidade)).Select(s => s.andar).ToList();
         }
 
         public List<char> elevadorMaisFrequentado()
         {
-            throw new NotImplementedException();
+            var elevadores = from elevador in ElevadorData.Elevadores
+                             group elevador by elevador.Elevador into elevadorGroup
+                             orderby elevadorGroup.Key ascending
+                             select new
+                             {
+                                 elevador = elevadorGroup.Key,
+                                 quantidade = elevadorGroup.Count()
+                             };
+
+            return elevadores.Where(e => e.quantidade == elevadores.Max(m => m.quantidade)).Select(s => s.elevador).ToList();
         }
 
         public List<char> elevadorMenosFrequentado()
         {
-            throw new NotImplementedException();
+            var elevadores = from elevador in ElevadorData.Elevadores
+                             group elevador by elevador.Elevador into elevadorGroup
+                             orderby elevadorGroup.Key ascending
+                             select new
+                             {
+                                 elevador = elevadorGroup.Key,
+                                 quantidade = elevadorGroup.Count()
+                             };
+
+            return elevadores.Where(e => e.quantidade == elevadores.Min(m => m.quantidade)).Select(s => s.elevador).ToList();
         }
 
         public float percentualDeUsoElevadorA()
