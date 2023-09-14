@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Pipes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,27 +57,87 @@ namespace test
 
         public float percentualDeUsoElevadorA()
         {
-            throw new NotImplementedException();
+            var elevadores = from elevador in ElevadorData.Elevadores
+                             group elevador by elevador.Elevador into elevadorGroup
+                             orderby elevadorGroup.Key ascending
+                             select new
+                             {
+                                 elevador = elevadorGroup.Key,
+                                 quantidade = elevadorGroup.Count()
+                             };
+
+            var quantidadeElevadorA = (decimal)elevadores.Where(e => e.elevador == 'A').First().quantidade;
+            var quantidadeElevadores = (decimal)elevadores.Sum(s => s.quantidade);
+
+            return (float)Math.Round((quantidadeElevadorA / quantidadeElevadores * 100), 2);
         }
 
         public float percentualDeUsoElevadorB()
         {
-            throw new NotImplementedException();
+            var elevadores = from elevador in ElevadorData.Elevadores
+                             group elevador by elevador.Elevador into elevadorGroup
+                             orderby elevadorGroup.Key ascending
+                             select new
+                             {
+                                 elevador = elevadorGroup.Key,
+                                 quantidade = elevadorGroup.Count()
+                             };
+
+            var quantidadeElevadorA = (decimal)elevadores.Where(e => e.elevador == 'B').First().quantidade;
+            var quantidadeElevadores = (decimal)elevadores.Sum(s => s.quantidade);
+
+            return (float)Math.Round((quantidadeElevadorA / quantidadeElevadores * 100), 2);
         }
 
         public float percentualDeUsoElevadorC()
         {
-            throw new NotImplementedException();
+            var elevadores = from elevador in ElevadorData.Elevadores
+                             group elevador by elevador.Elevador into elevadorGroup
+                             orderby elevadorGroup.Key ascending
+                             select new
+                             {
+                                 elevador = elevadorGroup.Key,
+                                 quantidade = elevadorGroup.Count()
+                             };
+
+            var quantidadeElevadorA = (decimal)elevadores.Where(e => e.elevador == 'C').First().quantidade;
+            var quantidadeElevadores = (decimal)elevadores.Sum(s => s.quantidade);
+
+            return (float)Math.Round((quantidadeElevadorA / quantidadeElevadores * 100), 2);
         }
 
         public float percentualDeUsoElevadorD()
         {
-            throw new NotImplementedException();
+            var elevadores = from elevador in ElevadorData.Elevadores
+                             group elevador by elevador.Elevador into elevadorGroup
+                             orderby elevadorGroup.Key ascending
+                             select new
+                             {
+                                 elevador = elevadorGroup.Key,
+                                 quantidade = elevadorGroup.Count()
+                             };
+
+            var quantidadeElevadorA = (decimal)elevadores.Where(e => e.elevador == 'D').First().quantidade;
+            var quantidadeElevadores = (decimal)elevadores.Sum(s => s.quantidade);
+
+            return (float)Math.Round((quantidadeElevadorA / quantidadeElevadores * 100), 2);
         }
 
         public float percentualDeUsoElevadorE()
         {
-            throw new NotImplementedException();
+            var elevadores = from elevador in ElevadorData.Elevadores
+                             group elevador by elevador.Elevador into elevadorGroup
+                             orderby elevadorGroup.Key ascending
+                             select new
+                             {
+                                 elevador = elevadorGroup.Key,
+                                 quantidade = elevadorGroup.Count()
+                             };
+
+            var quantidadeElevadorA = (decimal)elevadores.Where(e => e.elevador == 'E').First().quantidade;
+            var quantidadeElevadores = (decimal)elevadores.Sum(s => s.quantidade);
+
+            return (float)Math.Round((quantidadeElevadorA / quantidadeElevadores * 100), 2);
         }
 
         public List<char> periodoMaiorFluxoElevadorMaisFrequentado()
@@ -93,5 +154,21 @@ namespace test
         {
             throw new NotImplementedException();
         }
+
+        #region METODOS_AUXILIARES
+
+        //public List<T> AgruparElevadoresNome(T a)
+        //{
+        //    return from elevador in ElevadorData.Elevadores
+        //                     group elevador by elevador.Elevador into elevadorGroup
+        //                     orderby elevadorGroup.Key ascending
+        //                     select new
+        //                     {
+        //                         elevador = elevadorGroup.Key,
+        //                         quantidade = elevadorGroup.Count()
+        //                     };
+        //}
+
+        #endregion
     }
 }
