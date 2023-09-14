@@ -142,7 +142,17 @@ namespace test
 
         public List<char> periodoMaiorFluxoElevadorMaisFrequentado()
         {
-            throw new NotImplementedException();
+            var elevadores = from elevador in ElevadorData.Elevadores
+                             group elevador by elevador into elevadorGroup
+                             orderby elevadorGroup.Key.Elevador ascending
+                             select new
+                             {
+                                 elevador = elevadorGroup.Key.Elevador,
+                                 turno = elevadorGroup.Key.Turno,
+                                 quantidade = elevadorGroup.Count()
+                             };
+
+            return elevadores.Where(e => e.quantidade == elevadores.Max(m => m.quantidade)).Select(s => s.turno).ToList();
         }
 
         public List<char> periodoMaiorUtilizacaoConjuntoElevadores()

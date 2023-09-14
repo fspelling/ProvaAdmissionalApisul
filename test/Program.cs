@@ -2,4 +2,6 @@
 
 var service = new ElevadorService();
 
-var resultElevadorMaisFrequentado = service.percentualDeUsoElevadorA();
+var resultElevadorMaisFrequentado = service.periodoMaiorFluxoElevadorMaisFrequentado();
+
+var test = "test";
