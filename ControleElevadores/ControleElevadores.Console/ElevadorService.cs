@@ -48,90 +48,15 @@
             return elevadores.Where(e => e.quantidade == elevadores.Min(m => m.quantidade)).Select(s => s.elevador).ToList();
         }
 
-        public float percentualDeUsoElevadorA()
-        {
-            var elevadores = from elevador in ElevadorData.Elevadores
-                             group elevador by elevador.Elevador into elevadorGroup
-                             orderby elevadorGroup.Key ascending
-                             select new
-                             {
-                                 elevador = elevadorGroup.Key,
-                                 quantidade = elevadorGroup.Count()
-                             };
+        public float percentualDeUsoElevadorA() => PercentualDeUsoPorElevador('A');
 
-            var quantidadeElevadorA = (decimal)elevadores.Where(e => e.elevador == 'A').First().quantidade;
-            var quantidadeElevadores = (decimal)elevadores.Sum(s => s.quantidade);
+        public float percentualDeUsoElevadorB() => PercentualDeUsoPorElevador('B');
 
-            return (float)Math.Round((quantidadeElevadorA / quantidadeElevadores * 100), 2);
-        }
+        public float percentualDeUsoElevadorC() => PercentualDeUsoPorElevador('C');
 
-        public float percentualDeUsoElevadorB()
-        {
-            var elevadores = from elevador in ElevadorData.Elevadores
-                             group elevador by elevador.Elevador into elevadorGroup
-                             orderby elevadorGroup.Key ascending
-                             select new
-                             {
-                                 elevador = elevadorGroup.Key,
-                                 quantidade = elevadorGroup.Count()
-                             };
+        public float percentualDeUsoElevadorD() => PercentualDeUsoPorElevador('D');
 
-            var quantidadeElevadorA = (decimal)elevadores.Where(e => e.elevador == 'B').First().quantidade;
-            var quantidadeElevadores = (decimal)elevadores.Sum(s => s.quantidade);
-
-            return (float)Math.Round((quantidadeElevadorA / quantidadeElevadores * 100), 2);
-        }
-
-        public float percentualDeUsoElevadorC()
-        {
-            var elevadores = from elevador in ElevadorData.Elevadores
-                             group elevador by elevador.Elevador into elevadorGroup
-                             orderby elevadorGroup.Key ascending
-                             select new
-                             {
-                                 elevador = elevadorGroup.Key,
-                                 quantidade = elevadorGroup.Count()
-                             };
-
-            var quantidadeElevadorA = (decimal)elevadores.Where(e => e.elevador == 'C').First().quantidade;
-            var quantidadeElevadores = (decimal)elevadores.Sum(s => s.quantidade);
-
-            return (float)Math.Round((quantidadeElevadorA / quantidadeElevadores * 100), 2);
-        }
-
-        public float percentualDeUsoElevadorD()
-        {
-            var elevadores = from elevador in ElevadorData.Elevadores
-                             group elevador by elevador.Elevador into elevadorGroup
-                             orderby elevadorGroup.Key ascending
-                             select new
-                             {
-                                 elevador = elevadorGroup.Key,
-                                 quantidade = elevadorGroup.Count()
-                             };
-
-            var quantidadeElevadorA = (decimal)elevadores.Where(e => e.elevador == 'D').First().quantidade;
-            var quantidadeElevadores = (decimal)elevadores.Sum(s => s.quantidade);
-
-            return (float)Math.Round((quantidadeElevadorA / quantidadeElevadores * 100), 2);
-        }
-
-        public float percentualDeUsoElevadorE()
-        {
-            var elevadores = from elevador in ElevadorData.Elevadores
-                             group elevador by elevador.Elevador into elevadorGroup
-                             orderby elevadorGroup.Key ascending
-                             select new
-                             {
-                                 elevador = elevadorGroup.Key,
-                                 quantidade = elevadorGroup.Count()
-                             };
-
-            var quantidadeElevadorA = (decimal)elevadores.Where(e => e.elevador == 'E').First().quantidade;
-            var quantidadeElevadores = (decimal)elevadores.Sum(s => s.quantidade);
-
-            return (float)Math.Round((quantidadeElevadorA / quantidadeElevadores * 100), 2);
-        }
+        public float percentualDeUsoElevadorE() => PercentualDeUsoPorElevador('E');
 
         public List<char> periodoMaiorFluxoElevadorMaisFrequentado()
         {
@@ -179,17 +104,22 @@
 
         #region METODOS_AUXILIARES
 
-        //public List<T> AgruparElevadoresNome(T a)
-        //{
-        //    return from elevador in ElevadorData.Elevadores
-        //                     group elevador by elevador.Elevador into elevadorGroup
-        //                     orderby elevadorGroup.Key ascending
-        //                     select new
-        //                     {
-        //                         elevador = elevadorGroup.Key,
-        //                         quantidade = elevadorGroup.Count()
-        //                     };
-        //}
+        private float PercentualDeUsoPorElevador(char tipoElevador)
+        {
+            var elevadores = from elevador in ElevadorData.Elevadores
+                             group elevador by elevador.Elevador into elevadorGroup
+                             orderby elevadorGroup.Key ascending
+                             select new
+                             {
+                                 elevador = elevadorGroup.Key,
+                                 quantidade = elevadorGroup.Count()
+                             };
+
+            var quantidadeElevadorA = (decimal)elevadores.Where(e => e.elevador == tipoElevador).First().quantidade;
+            var quantidadeElevadores = (decimal)elevadores.Sum(s => s.quantidade);
+
+            return (float)Math.Round((quantidadeElevadorA / quantidadeElevadores * 100), 2);
+        }
 
         #endregion
     }
