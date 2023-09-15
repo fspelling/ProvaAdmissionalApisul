@@ -1,4 +1,4 @@
-﻿namespace test
+﻿namespace ProvaAdmissionalApisul.Console
 {
     public interface IElevadorService
     {

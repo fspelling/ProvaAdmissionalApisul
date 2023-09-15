@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projetos\\ProvaAdmissionalApisul\\test\\test.csproj": {}
+    "C:\\Projetos\\ProvaAdmissionalApisul\\test\\ProvaAdmissionalApisul.Console.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\ProvaAdmissionalApisul\\test\\test.csproj": {
+    "C:\\Projetos\\ProvaAdmissionalApisul\\test\\ProvaAdmissionalApisul.Console.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\ProvaAdmissionalApisul\\test\\test.csproj",
-        "projectName": "test",
-        "projectPath": "C:\\Projetos\\ProvaAdmissionalApisul\\test\\test.csproj",
+        "projectUniqueName": "C:\\Projetos\\ProvaAdmissionalApisul\\test\\ProvaAdmissionalApisul.Console.csproj",
+        "projectName": "ProvaAdmissionalApisul.Console",
+        "projectPath": "C:\\Projetos\\ProvaAdmissionalApisul\\test\\ProvaAdmissionalApisul.Console.csproj",
         "packagesPath": "C:\\Users\\Fernando\\.nuget\\packages\\",
         "outputPath": "C:\\Projetos\\ProvaAdmissionalApisul\\test\\obj\\",
         "projectStyle": "PackageReference",

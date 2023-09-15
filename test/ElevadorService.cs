@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO.Pipes;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace test
+﻿namespace test
 {
     public class ElevadorService : IElevadorService
     {
@@ -143,7 +136,7 @@ namespace test
         public List<char> periodoMaiorFluxoElevadorMaisFrequentado()
         {
             var elevadores = from elevador in ElevadorData.Elevadores
-                             group elevador by elevador into elevadorGroup
+                             group elevador by new { elevador.Elevador, elevador.Turno } into elevadorGroup
                              orderby elevadorGroup.Key.Elevador ascending
                              select new
                              {
@@ -157,12 +150,31 @@ namespace test
 
         public List<char> periodoMaiorUtilizacaoConjuntoElevadores()
         {
-            throw new NotImplementedException();
+            var elevadores = from elevador in ElevadorData.Elevadores
+                             group elevador by elevador.Turno into elevadorGroup
+                             orderby elevadorGroup.Key ascending
+                             select new
+                             {
+                                 turno = elevadorGroup.Key,
+                                 quantidade = elevadorGroup.Count()
+                             };
+
+            return elevadores.Where(e => e.quantidade == elevadores.Max(m => m.quantidade)).Select(s => s.turno).ToList();
         }
 
         public List<char> periodoMenorFluxoElevadorMenosFrequentado()
         {
-            throw new NotImplementedException();
+            var elevadores = from elevador in ElevadorData.Elevadores
+                             group elevador by new { elevador.Elevador, elevador.Turno } into elevadorGroup
+                             orderby elevadorGroup.Key.Elevador ascending
+                             select new
+                             {
+                                 elevador = elevadorGroup.Key.Elevador,
+                                 turno = elevadorGroup.Key.Turno,
+                                 quantidade = elevadorGroup.Count()
+                             };
+
+            return elevadores.Where(e => e.quantidade == elevadores.Min(m => m.quantidade)).Select(s => s.turno).ToList();
         }
 
         #region METODOS_AUXILIARES
