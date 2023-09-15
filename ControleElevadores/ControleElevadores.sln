@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleElevadores.Console", "ControleElevadores.Console\ControleElevadores.Console.csproj", "{227DBF5A-74F8-4A8A-8DEB-DE9A006B3DA4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{227DBF5A-74F8-4A8A-8DEB-DE9A006B3DA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{227DBF5A-74F8-4A8A-8DEB-DE9A006B3DA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{227DBF5A-74F8-4A8A-8DEB-DE9A006B3DA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{227DBF5A-74F8-4A8A-8DEB-DE9A006B3DA4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DD34C3D4-9F3B-4822-A673-E064005C703D}
+	EndGlobalSection
+EndGlobal

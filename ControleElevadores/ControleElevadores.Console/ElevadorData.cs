@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace ProvaAdmissionalApisul.Console
+namespace ControleElevadores.Console
 {
     public class ElevadorData
     {
